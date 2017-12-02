@@ -1,0 +1,29 @@
+apply from: 'buildsystem/library.gradle'
+apply from: 'buildsystem/ci.gradle'
+apply from: 'buildsystem/signing.gradle'
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.google.gms:google-services:3.1.0'
+    }
+}
+
+allprojects {
+    ext {
+        androidApplicationId = 'com.toan_itc.mobifone'
+        androidVersionCode = 21
+        androidVersionName = "2.0.1"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+repositories {
+    google()
+}
